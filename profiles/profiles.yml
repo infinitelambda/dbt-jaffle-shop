@@ -1,0 +1,15 @@
+jaffle_shop:
+  target: dev
+  outputs:
+    dev:
+      type: "{{ env_var('DBT_DB_TYPE') }}"
+      account: "{{ env_var('DBT_DB_ACCOUNT') }}"
+     # User/password auth
+      password: "{{ env_var('DBT_PWD') }}" 
+      user: "{{ env_var('DBT_USER') }}" 
+      role: "{{ env_var('DBT_ROLE') }}" 
+      database: "{{ env_var('DBT_DB') }}" 
+      warehouse: "{{ env_var('DBT_WH') }}" 
+      schema: "{{ env_var('DBT_DB_SCHEMA') }}"
+      threads: 2
+      client_session_keep_alive: False

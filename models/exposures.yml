@@ -1,0 +1,35 @@
+version: 2
+
+exposures:
+  
+  - name: weekly_jaffle_metrics
+    type: dashboard
+    maturity: high
+    url: https://www.infinitelambda.com
+    description: >
+      Did someone say "exponential growth"?
+    
+    depends_on:
+      - ref('orders')
+      - ref('customers')
+      - source('raw_jaffle', 'raw_payments')
+      
+    owner:
+      name: Data Owner's Name
+      email: data@owners.email
+
+  - name: daily_data_quality
+    type: analysis
+    maturity: low
+    url: https://www.infinitelambda.com
+    description: >
+      DQ analysis of the ingested datasources
+    
+    depends_on:
+      - source('raw_jaffle', 'raw_orders')
+      - source('raw_jaffle', 'raw_customers')
+      - source('raw_jaffle', 'raw_payments')
+      
+    owner:
+      name: DQ Owner's Name
+      email: dq@owners.email
