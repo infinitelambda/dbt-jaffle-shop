@@ -21,3 +21,19 @@ jobs:
         run: |
           pwd
           ls -al
+      - name: install-requirements
+        run: pip install -r ./python/requirements.txt
+      # - name: create profile.yml
+      #   run: python ./python/create_profile.py
+      - name: dbt debug
+        run: dbt debug --profiles-dir ./profiles --profile jaffle_shop
+        env:
+          DBT_DB_TYPE: ${{  secrets.DBT_DB_TYPE }}
+          DBT_DB_ACCOUNT: ${{  secrets.DBT_DB_ACCOUNT }}
+        # User/password auth
+          DBT_PWD: ${{  secrets.DBT_PWD }} 
+          DBT_USER: ${{  secrets.DBT_USER }} 
+          DBT_ROLE: ${{  secrets.DBT_ROLE }} 
+          DBT_DB: ${{  secrets.DBT_DB }} 
+          DBT_WH: ${{  secrets.DBT_WH }} 
+          DBT_DB_SCHEMA: ${{  secrets.DBT_DB_SCHEMA }}
