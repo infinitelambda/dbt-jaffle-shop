@@ -2,10 +2,9 @@
 
 ## Data Documentation for Jaffle Shop
 
-`jaffle_shop` is a fictional ecommerce store.
+`jaffle_shop` is a fictional ecommerce store thought by [dbt](https://www.getdbt.com/).
 
-This [dbt](https://www.getdbt.com/) project is for testing out code.
+At [InfiniteLambda](https://www.infinitelambda.com/), we are using this as a sample of docs: lineage, column definitions, tests, etc.
 
-The source code can be found [here](https://github.com/clrcrl/jaffle_shop).
-
+<img src="https://infinitelambda.com/wp-content/uploads/2020/09/Logos_black-with-green_IL-38.svg" alt="IL Logo" style="width:100px"> 
 {% enddocs %}

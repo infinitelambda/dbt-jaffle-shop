@@ -18,6 +18,8 @@ clean-targets:
 
 models:
   jaffle_shop:
+      +persist_docs:
+        columns: true
       materialized: table
       staging:
         materialized: view

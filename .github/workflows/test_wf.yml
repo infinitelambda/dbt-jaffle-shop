@@ -1,0 +1,16 @@
+# Test wf
+name: hello-world
+on: 
+  pull_request:
+    branches: [main]
+jobs:
+  hello:
+    runs-on: ubuntu-latest
+    # Map a step output to a job output
+    steps:
+        # Make sure we have some code to diff.
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: Print hello
+        run: |
+          echo "Hello World!"
