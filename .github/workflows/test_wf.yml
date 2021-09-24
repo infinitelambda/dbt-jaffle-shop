@@ -22,7 +22,9 @@ jobs:
           pwd
           ls -al
       - name: install-requirements
-        run: pip install -r ./python/requirements.txt
+        run: |
+          pip install -r ./python/requirements.txt
+          pip install dbt==0.20.2
       # - name: create profile.yml
       #   run: python ./python/create_profile.py
       - name: dbt debug
