@@ -11,16 +11,9 @@ jobs:
         # Make sure we have some code to diff.
       - name: Checkout repository
         uses: actions/checkout@v2
-      - name: Print hello
-        run: |
-          echo "Hello World!"
       - uses: actions/setup-python@v2
         with:
           python-version: '3.8.5'
-      - name: check
-        run: |
-          pwd
-          ls -al
       - name: install-requirements
         run: |
           pip install -r ./python/requirements.txt
