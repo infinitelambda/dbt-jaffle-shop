@@ -20,8 +20,8 @@ jobs:
           pip install dbt==0.20.2
       # - name: create profile.yml
       #   run: python ./python/create_profile.py
-      - name: dbt debug
-        run: dbt debug --profiles-dir ./profiles --profile jaffle_shop
+      - name: dbt docs
+        run: dbt docs generate --profiles-dir ./profiles --profile jaffle_shop
         env:
           DBT_DB_TYPE: ${{  secrets.DBT_DB_TYPE }}
           DBT_DB_ACCOUNT: ${{  secrets.DBT_DB_ACCOUNT }}
@@ -32,3 +32,13 @@ jobs:
           DBT_DB: ${{  secrets.DBT_DB }} 
           DBT_WH: ${{  secrets.DBT_WH }} 
           DBT_DB_SCHEMA: ${{  secrets.DBT_DB_SCHEMA }}
+      - name: generate excel docs
+        run: |
+          cd python
+          python parse_docs.py
+      - name: upload docs
+        uses: actions/upload-artifact@v2
+        with:
+          name: Excel-dbt-docs
+          path: tmp/*.xlsx
+          retention-days: 5
