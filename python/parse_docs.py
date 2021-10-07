@@ -1,9 +1,5 @@
 import json
 import pandas as pd
-import os
-
-for key, item in os.environ.items():
-    print(f'{key}: {item}, {" ".join(list(item))}')
 
 # Open manifest and catalog
 with open("../target/manifest.json") as f:

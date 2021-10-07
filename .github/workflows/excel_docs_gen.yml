@@ -21,7 +21,9 @@ jobs:
       # - name: create profile.yml
       #   run: python ./python/create_profile.py
       - name: dbt docs
-        run: dbt docs generate --profiles-dir ./profiles --profile jaffle_shop
+        run: |
+          python python/print_dbt_vars.py
+          dbt docs generate --profiles-dir ./profiles --profile jaffle_shop
         env:
           DBT_DB_TYPE: ${{  secrets.DBT_DB_TYPE }}
           DBT_DB_ACCOUNT: ${{  secrets.DBT_DB_ACCOUNT }}
