@@ -3,6 +3,8 @@ name: generate-excel-docs
 on: 
   pull_request:
     branches: [main]
+  workflow_dispatch:
+    
 jobs:
   upload-artifact:
     runs-on: ubuntu-latest
